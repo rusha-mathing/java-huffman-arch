@@ -17,12 +17,20 @@ public class Node {
         this.count = left.count + left.count;
     }
 
-    public char getData() {
+    public Character getData() {
         return data;
     }
 
     public int getCount() {
         return count;
+    }
+
+    public Node getLeft() {
+        return left;
+    }
+
+    public Node getRight() {
+        return right;
     }
 
     @Override
