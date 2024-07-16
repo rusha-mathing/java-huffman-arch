@@ -1,12 +1,20 @@
 package org.davmig.arch.huffman;
 
 public class Node {
-    private final char data;
+    private Character data = null;
     private final int count;
+    private Node left = null;
+    private Node right = null;
 
     public Node(char data, int count) {
         this.data = data;
         this.count = count;
+    }
+
+    public Node(Node left, Node right) {
+        this.left = left;
+        this.right = right;
+        this.count = left.count + left.count;
     }
 
     public char getData() {
@@ -19,9 +27,13 @@ public class Node {
 
     @Override
     public String toString() {
-        return "Node{" +
-                "data=" + data +
-                ", count=" + count +
-                '}';
+        if (data == null) {
+            return "Node{" +
+                    "left=" + left +
+                    ", right=" + right +
+                    '}';
+        } else {
+            return "Node{" + data + "," + count + "}";
+        }
     }
 }
