@@ -37,7 +37,7 @@ public class NodeUtil {
         if (node == null) {
             return;
         }
-        if (node.getData() != null) {
+        if (node.isLeaf()) {
             codes.put(node.getData(), code);
         }
         generateCodesRecursive(node.getLeft(), code + "0", codes);
