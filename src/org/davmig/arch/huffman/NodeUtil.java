@@ -27,18 +27,18 @@ public class NodeUtil {
         return nodes.poll();
     }
 
-    public static Map<Character, String> generateCodes(Node root) {
-        Map<Character, String> codes = new HashMap<>();
+    public static Map<Character, Bitset> generateCodes(Node root) {
+        Map<Character, Bitset> codes = new HashMap<>();
         generateCodesRecursive(root, "", codes);
         return codes;
     }
 
-    private static void generateCodesRecursive(Node node, String code, Map<Character, String> codes) {
+    private static void generateCodesRecursive(Node node, String code, Map<Character, Bitset> codes) {
         if (node == null) {
             return;
         }
         if (node.isLeaf()) {
-            codes.put(node.getData(), code);
+            codes.put(node.getData(), new Bitset(code));
         }
         generateCodesRecursive(node.getLeft(), code + "0", codes);
         generateCodesRecursive(node.getRight(), code + "1", codes);
